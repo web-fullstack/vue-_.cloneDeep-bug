@@ -1,12 +1,42 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
+      <br />
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+import _ from 'lodash';
+
+export default {
+  // name: 'app',
+  watch: {
+    $route (to, from) {
+      console.log('to', to);
+      console.log('from', from);
+      if (from.path.includes('/')) {
+        this.$oldRoute = _.cloneDeep(from);
+        // this.$oldRoute = JSON.parse(JSON.stringify(from));
+        // this.$oldRoute = from;
+        console.log('from', from);
+        console.log('this.$oldRoute', this.$oldRoute);
+      }
+    },
+  },
+  data () {
+    return {
+      $oldRoute: {},
+      ua: navigator.userAgent,
+    };
+  },
+  // ...
+};
+</script>
 
 <style lang="scss">
 #app {
