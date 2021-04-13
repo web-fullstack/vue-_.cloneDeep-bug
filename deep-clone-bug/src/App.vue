@@ -20,9 +20,9 @@ export default {
       console.log('to', to);
       console.log('from', from);
       if (from.path.includes('/')) {
-        // this.$oldRoute = _.cloneDeep(from);
+        this.$oldRoute = _.cloneDeep(from);
         // this.$oldRoute = JSON.parse(JSON.stringify(from));
-        this.$oldRoute = from;
+        // this.$oldRoute = from;
         console.log('from', from);
         console.log('this.$oldRoute', this.$oldRoute);
         // params: {}
